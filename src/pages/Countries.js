@@ -1,18 +1,18 @@
 import React, { useState, useEffect,useContext } from 'react'
 import '../styles/Count.css';
 import { Link } from 'react-router-dom';
-
 import { ThemeContext } from "../ThemeContext";
 
 
 const url = ` https://restcountries.com/v3.1/all`
 const Countries = () => {
-  const { darkMode } = useContext(ThemeContext);
+ const { darkMode } = useContext(ThemeContext);
  const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState('');
   const [searchTittle, setSearchTittle] = useState('')
  const fetchCountryData = async () => {
-    const response = await fetch(url)
+    const response = await fetch( url
+    )
     const countries = await response.json()
     setCountries(countries)
 
@@ -29,14 +29,17 @@ const Countries = () => {
   return (
     <>
  <section className={darkMode ? 'filter': 'filter'}>
+ 
         <form className="control-panel">
           <input className={darkMode ? 'input': 'inputlight'}
-           type="search" name="search" id="search" placeholder='search for a country...'
+      
+ type="search" name="search" id="search" placeholder='search for a country...'
             onChange={(e) => setSearchTittle(e.target.value)} />
         </form>
 
         <div className='region-filter'>
-          <select name="select" id="select" className={darkMode ? 'select': 'selectlight'} onChange={(e) => setSearch(e.target.value)}
+          <select name="select" id="select" className={darkMode?'select': 'selectlight'}
+ onChange={(e) => setSearch(e.target.value)}
           >
             <option value="Filter by region">Filter by Region</option>
             <option value="Africa">Africa</option>
@@ -80,16 +83,16 @@ const Countries = () => {
             return <article key={latlng}>
               <div>
                 <img src={flags.svg} alt={name.common} />
-                <div className={darkMode ?'details':'detailslight'}>
+                <div className={darkMode?'details': 'detailslight'}>
                   <h3 className='country-name'>{name.common}</h3>
                   <h4> Population: <span>   {population} </span></h4>
                   <h4>Region: <span> {region} </span></h4>
                   <h4>Capital: <span> {capital} </span></h4>
                   <div className='divbtn'>
-                 <button className={darkMode ? 'button':'buttonlight'}> <Link to={`/Countries/${name.common}`} 
-                 className={darkMode ? 'link': 'linklight'}>
+                <button className={darkMode? 'button':'buttonlight'}> <Link to={`/Countries/${name.common}`} 
+                 className= {darkMode?'link':'linklight'}>
                   LearnMore</Link>
-                  </button>
+            </button>
                   <button className={darkMode ? "button":'buttonlight'} onClick={() => remove(latlng)}>RemoveCountry</button>
                   </div>
                 </div>

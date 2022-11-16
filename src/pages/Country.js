@@ -34,8 +34,8 @@ this was created by Lucy Ameh Greg if this does not show. know that the problem 
 
 <section className='country'>
   <div>
-<button className={darkMode ? 'button': 'buttonlight'}>
-<Link to='/'className={darkMode ? 'link': 'linklight'}>
+<button className={darkMode?'button':'buttonlight'}>
+<Link to='/'className={darkMode?'link':'linklight'}>
 {arrow}    BACK</Link>
 </button>
 </div>
@@ -83,7 +83,7 @@ this was created by Lucy Ameh Greg if this does not show. know that the problem 
   {borders.map((border)=>{
     return(
     <ul key={border}
-  className={darkMode ? 'ul':'ullight'}  >
+  className={darkMode?'ul':'ullight'}  >
       <li>{border}</li>
   </ul>
     )

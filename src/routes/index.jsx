@@ -3,11 +3,10 @@ import {
     BrowserRouter,
     Routes,
     Route,
+    
   } from "react-router-dom";
 
 import Header from '../components/Header';
-
-
 import Countries from '../pages/Countries';
 import Country from '../pages/Country';
 
@@ -17,9 +16,8 @@ const AppRoute = () => {
     <BrowserRouter>
   <Header/>
     <Routes>
-      
-        <Route element={<Countries />} path='/' />
-        <Route element={<Country />} path='/Countries/:name' />
+       <Route element={<Countries />} path='*' />
+   <Route element={<Country />} path='/Countries/:name' />
     </Routes>
     </BrowserRouter>
 
